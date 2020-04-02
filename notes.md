@@ -45,4 +45,24 @@ Join table should be a many-to-many relationship, otherwise it will feel contriv
 	If it has two belongs_to -- that's your join table. 
 	Comment works as a nice join table for almost anything. In my case, comment is the note, connects the site and the user 
 
+	JOIN TABLE HAS TWO BELONGS_TO 
+
+To figure it out, think about what's in the middle, like, a post is in the middle of a category and a user, ec. 
+
+	or PostCaetgoires: 
+	  belongs_to :post
+	  belongs_to :category 
+	  	this method would allow a post to have many categories, it's a many_to_many AR 
+	  	There are always many ways to do these . 
+
+Can a join model join more than two models? It can, but usually there's not a need for it, but sometimes there is. 
+
 generators: resource (includes routes)
+
+==> when you have to name the association something different from the model itself: read this: https://www.theodinproject.com/courses/ruby-on-rails/lessons/active-record-associations
+
+
+
+polymorphic -- a model can belong to more than one other model, on a single association 
+
+ARs have many methods that abstract out lots of common code. They really shine in complex situations, like join models, conditions, validations 
