@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # resources :categories
   # write custom routes about the defaults, because they are read first 
 
-  # root 'sessions@home'
+  # root "sessions#home"
   
   #signup
   get '/signup' => 'users#new'

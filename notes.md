@@ -66,3 +66,27 @@ generators: resource (includes routes)
 polymorphic -- a model can belong to more than one other model, on a single association 
 
 ARs have many methods that abstract out lots of common code. They really shine in complex situations, like join models, conditions, validations 
+
+rails myblog project build -- look for more 
+
+
+How can a user sign up? 
+What's missing from the models? 
+	-- we need has_secure_password through bcrypt so we get .authenticate method, and validations for password and pass_confirmation 
+
+user_id -- hidden field in erbview page, or assign it with the controller. 
+
+This would be the syntax, but you're going to have to check on backend anyway, because hidden_field is hackable. 
+<%= f.hidden_field :user_id, value: session[:user_id] %>
+
+The controller always has to double-check
+
+# build new post off of user, hence current_user.posts 
+	def create
+		@post = current_user.posts.build(post_params)
+		if @post.save 
+			redirect_to posts_path
+		else
+			render :new
+		end
+	end
